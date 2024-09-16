@@ -1,6 +1,46 @@
 Tên: Beyond The Death
 
-Thể Loại: Idle, RNG, MMO
+Thể Loại: Idle, Strategy, LvPw, Auto-Battler.
 
-Bối Cảnh:
+Theme: Hậu tận thế, pháp thuật.
 
+Cốt truyện:
+
+Mechanics:
+- Event Tick: hệ thống random sẽ diễn ra mỗi tick, Event Tick quyết định những sự kiện được diễn ra trong Phase Explore. Khi 1 sự kiện đang diễn ra,
+			  Event Tick sẽ ngừng random.
+- Combat Tick: Hệ thống random sẽ diễn ra mỗi tick, khi trong trạng thái chiến đấu. Quyết định các kỹ năng và đòn đánh được tung ra bởi nhân vật.
+
+- Loot Roll: hệ thống random khi 1 sự kiện mang đến sự thay đổi về trạng thái của Deployed hoặc chính kho đồ của Player.
+
+- Deployed: Deployed là từ dùng để chỉ các nhân vật được sử dụng trong nhiệm vụ hiện tại.
+
+- Invest Progess: 1 set các điều kiện hoặc 1 khoảng thời gian để hoàn thành Phase Invest.
+
+- Invest Progess Tick: hệ thống random tick dùng để tăng trưởng Invest Progess, với mỗi tick không nhận được tăng trưởng, tăng tỷ lệ nhận được tăng trưởng lên 5%.
+					   1 số các nội tại hoặc chỉ số đặc biệt của nhân vật sẽ làm tăng tỷ lệ nhận tăng trưởng.
+- Nhân vật: các Nhân vật được chia làm 7 bậc, bao gồm SoulBound, 1 đến 5, và Unique, trong đó:
+			- 1->5 (Bậc thường): chỉ số nhận được khi training và lên cấp cũng như cấp tối đa của nhân vật sẽ phụ thuộc vào bậc của nhân vật đó.
+								 Những nhân vật bậc thấp trong các bậc thường có thể được nâng bậc bằng các cách khác nhau. Khi chết trong 1 nhiệm vụ
+								 Nhân vật có Bậc Thường sẽ chết mãi mãi, nghĩa là người chơi sẽ mất nhân vật đó.
+			- SoulBound và Unique là những bậc đặc biệt.
+			- SoulBound: Không có giới hạn về cấp độ và chỉ số, tuy nhiên điều kiện lên cấp và chỉ số cực kì khắc nghiệt, lượng tăng tự nhiên thậm chí không bằng 1/4 các 
+						 Nhân vật bậc 1. Tuy nhiên, khi nhân vật này chết trong 1 nhiệm vụ, nhân vật này sẽ được hồi sinh, bị giảm 20% chỉ số trong 4 tiếng, có thể cộng dồn
+						 lượng giảm đến tối đa 100%, ở lượng giảm tối đa, các chỉ số sẽ quay về lúc nhân vật vừa xuất hiện. Thời gian bị giảm sẽ đếm ngược từ lần chết gần nhất.
+			- Unique: Có giới hạn về cấp độ gấp ba so với nhân vật bậc 5, để 1 nhân vật bậc 5 tiến lên, cần thực hiện 1 chuỗi nhiệm vụ đặc biệt khi nhân vật này tối đa tất cả
+					  các chỉ số, cấp độ và kĩ năng.
+Game Play:
+- Gồm 3 Phase chính: 
+	- Draft: Phase khởi đầu của mọi trận chiến/nhiệm vụ, quá trình xếp team, set up trang bị ở phase này.
+	- Explore: Phase mở đầu nhiệm vụ, có 1 vài chế độ chơi sẽ không tồn tại phase này, tuy nhiên đây là Phase duy nhất các Event Tick được phép hoạt động
+		       vì thế nếu có phase này, tận dụng tốt phase này sẽ tăng tỉ lệ hoàn thành nhiệm vụ.
+	- Quest: Phase nhiệm vụ, đây là phase mà mục tiêu của nhiệm vụ sẽ được hoàn thành, với những chế độ chơi không có Phase Explore, đây sẽ là Phase Combat.
+- Những Phase phụ:
+	- Hunt&Gather: phase này chỉ được kích hoạt khi đang trong Phase Explore, khi kết thúc sẽ trở về Phase Explore. Đây là Phase xuất hiện khi các Deployed
+				   nhận được Event Tick liên quan đến săn bắt hoặc thu thập vật phẩm tự nhiên/vật phẩm trong thùng chứa. Khi trong Phase này, nếu là thu thập
+				   vật phẩm thì Loot Roll sẽ được kích hoạt, nếu là săn bắt sẽ kích hoạt Combat Tick, Event Tick tạm thời không hoạt động, kết thúc hoạt động
+				   săn bắn sẽ kích hoạt Loot Roll.
+	- Invest: Phase này sẽ kích hoạt ở những chế độ chơi đặc biệt sau khi kết thúc Phase Explore, Phase này kết thúc sẽ tiến tới Phase Quest. Phase này sẽ kích
+			  hoạt Invest Progess Tick, xuất hiện khi nhiệm vụ của màn chơi không được thể hiện mà cần phải tìm ra. Invest Progess có tính thời gian, nếu hoàn thành
+			  trước hạn, thời gian dư sẽ cộng vào Phase Quest nếu Phase Quest có giới hạn thời gian, ngược lại, nếu lố thời gian, sẽ trực tiếp rút vào giới hạn thời 
+			  gian của Phase Quest.
