@@ -7,8 +7,10 @@ Theme: Hậu tận thế, pháp thuật.
 Cốt truyện:
 
 Mechanics:
+
 - Event Tick: hệ thống random sẽ diễn ra mỗi tick, Event Tick quyết định những sự kiện được diễn ra trong Phase Explore. Khi 1 sự kiện đang diễn ra,
 			  Event Tick sẽ ngừng random.
+
 - Combat Tick: Hệ thống random sẽ diễn ra mỗi tick, khi trong trạng thái chiến đấu. Quyết định các kỹ năng và đòn đánh được tung ra bởi nhân vật.
 
 - Loot Roll: hệ thống random khi 1 sự kiện mang đến sự thay đổi về trạng thái của Deployed hoặc chính kho đồ của Player.
@@ -17,29 +19,62 @@ Mechanics:
 
 - Invest Progess: 1 set các điều kiện hoặc 1 khoảng thời gian để hoàn thành Phase Invest.
 
-- Invest Progess Tick: hệ thống random tick dùng để tăng trưởng Invest Progess, với mỗi tick không nhận được tăng trưởng, tăng tỷ lệ nhận được tăng trưởng lên 5%.
+- Invest Progess Tick: hệ thống random tick dùng để tăng trưởng Invest Progess, với mỗi tick không nhận được tăng trưởng, tăng tỷ lệ nhận được tăng trưởng lên 5%,
 					   1 số các nội tại hoặc chỉ số đặc biệt của nhân vật sẽ làm tăng tỷ lệ nhận tăng trưởng.
+
 - Nhân vật: các Nhân vật được chia làm 7 bậc, bao gồm SoulBound, 1 đến 5, và Unique, trong đó:
+
 			- 1->5 (Bậc thường): chỉ số nhận được khi training và lên cấp cũng như cấp tối đa của nhân vật sẽ phụ thuộc vào bậc của nhân vật đó.
 								 Những nhân vật bậc thấp trong các bậc thường có thể được nâng bậc bằng các cách khác nhau. Khi chết trong 1 nhiệm vụ
 								 Nhân vật có Bậc Thường sẽ chết mãi mãi, nghĩa là người chơi sẽ mất nhân vật đó.
-			- SoulBound và Unique là những bậc đặc biệt.
+
 			- SoulBound: Không có giới hạn về cấp độ và chỉ số, tuy nhiên điều kiện lên cấp và chỉ số cực kì khắc nghiệt, lượng tăng tự nhiên thậm chí không bằng 1/4 các 
-						 Nhân vật bậc 1. Tuy nhiên, khi nhân vật này chết trong 1 nhiệm vụ, nhân vật này sẽ được hồi sinh, bị giảm 20% chỉ số trong 4 tiếng, có thể cộng dồn
+						 Nhân vật bậc 1. Tuy nhiên, khi nhân vật này chết trong 1 nhiệm vụ, nhân vật này sẽ được hồi sinh, bị giảm 20% chỉ số trong 8 nhiệm vụ tiếp theo của người chơi, có thể cộng dồn
 						 lượng giảm đến tối đa 100%, ở lượng giảm tối đa, các chỉ số sẽ quay về lúc nhân vật vừa xuất hiện. Thời gian bị giảm sẽ đếm ngược từ lần chết gần nhất.
+
 			- Unique: Có giới hạn về cấp độ gấp ba so với nhân vật bậc 5, để 1 nhân vật bậc 5 tiến lên, cần thực hiện 1 chuỗi nhiệm vụ đặc biệt khi nhân vật này tối đa tất cả
-					  các chỉ số, cấp độ và kĩ năng.
+					  các chỉ số, cấp độ và kĩ năng. Khi nâng lên Unique, nhân vật chết trong nhiệm vụ sẽ không chết mãi mãi, mà có thể được hồi sinh bằng vật phẩm đặc biệt.
+
+- Kỹ Năng: có 2 loại kĩ năng tồn tại, 1 nhân vật sẽ không giới hạn lượng kĩ năng mà mình có thể sở hữu.
+		   - Nội tại: các kĩ năng liên quan đến chỉ số, thường cần thõa mãn 1 điều kiện nhất định để kích hoạt. Khi thõa mãn điều kiện, nội tại sẽ tự động kích hoạt. Những nội tại không có 
+		   			  điều kiện hoặc có điều kiện kích hoạt liên quan đến trang bị, sẽ được kích hoạt từ đầu nhiệm vụ.
+		   - Chủ động: các kĩ năng cần kích hoạt, nhân vật sẽ được kích hoạt những kĩ năng dạng này khi nhận được Combat Tick tung ra kĩ năng này. Các kỹ năng thường yêu cầu 1 set trang bị
+		   			   để có thể được kích hoạt
+		   Khi 1 nhân vật có thể training để tăng chỉ số, cũng có cơ hội nhận được thêm kĩ năng ở cả 2 dạng.
+		   Khi quay nhân vật, SoulBound sẽ không sở hữu bất kì kĩ năng nào, bậc 1 sẽ sở hữu 1 nội tại và 1 chủ động, tăng 1 với mỗi bậc.
+
+- Thiên Phú: Mỗi nhân vật sẽ có 1 Thiên Phú, Thiên Phú sẽ cố định và thường không cần điều kiện kích hoạt phức tạp, hoạt động giống như Nội Tại.
+
+- Phước Lành: các nhân vật có tỷ lệ nhận được Phước Lành khi quay ra, nâng bậc, hoàn thành thành tựu, Phước Lành là các nội tại đặc biệt giúp tăng
+			  khả năng sinh tồn của nhân vật, mỗi nhân vật chỉ có tối đa 1 Phước Lành.
+
+- Trang Bị: các slot trang bị chung bao gồm giáp thân, giáp thân dưới, mũ, tay phải, tay trái, giày, 3 artifact. trong đó:
+			- Giáp Thân: phần giáp che chắn cơ thể của nhân vật, có độ che phủ cao sẽ dẫn đến chỉ số cung cấp khác nhau, bao gồm các có kèm giáp tay, có kèm giáp cổ.
+						 Thông thường giáp thân sẽ giảm lượng sát thương nhân vật phải chịu, và giúp nhân vật chống lại các hiệu ứng bị thương như chảy máu, nội thương...
+			- Giáp thân dưới : giống với giáp thân.
+			- Mũ: giảm tỷ lệ trúng hiệu ứng tử vong từ các tấn công tầm xa.
+			- 2 tay: trang bị vũ khí, khiên, và các vật cầm tay khác, các item cần dùng 2 tay sẽ tốn cả 2 slot tay.
+			- 3 Artifact: các artifact là các vật phẩm đặc biệt, không hoặc rất ít trợ giúp cho chiến đấu, chủ yếu các artifact sẽ hỗ trợ cho nhân vật
+						  .
+
 Game Play:
+
 - Gồm 3 Phase chính: 
+
 	- Draft: Phase khởi đầu của mọi trận chiến/nhiệm vụ, quá trình xếp team, set up trang bị ở phase này.
+
 	- Explore: Phase mở đầu nhiệm vụ, có 1 vài chế độ chơi sẽ không tồn tại phase này, tuy nhiên đây là Phase duy nhất các Event Tick được phép hoạt động
 		       vì thế nếu có phase này, tận dụng tốt phase này sẽ tăng tỉ lệ hoàn thành nhiệm vụ.
+
 	- Quest: Phase nhiệm vụ, đây là phase mà mục tiêu của nhiệm vụ sẽ được hoàn thành, với những chế độ chơi không có Phase Explore, đây sẽ là Phase Combat.
+
 - Những Phase phụ:
+
 	- Hunt&Gather: phase này chỉ được kích hoạt khi đang trong Phase Explore, khi kết thúc sẽ trở về Phase Explore. Đây là Phase xuất hiện khi các Deployed
 				   nhận được Event Tick liên quan đến săn bắt hoặc thu thập vật phẩm tự nhiên/vật phẩm trong thùng chứa. Khi trong Phase này, nếu là thu thập
 				   vật phẩm thì Loot Roll sẽ được kích hoạt, nếu là săn bắt sẽ kích hoạt Combat Tick, Event Tick tạm thời không hoạt động, kết thúc hoạt động
 				   săn bắn sẽ kích hoạt Loot Roll.
+
 	- Invest: Phase này sẽ kích hoạt ở những chế độ chơi đặc biệt sau khi kết thúc Phase Explore, Phase này kết thúc sẽ tiến tới Phase Quest. Phase này sẽ kích
 			  hoạt Invest Progess Tick, xuất hiện khi nhiệm vụ của màn chơi không được thể hiện mà cần phải tìm ra. Invest Progess có tính thời gian, nếu hoàn thành
 			  trước hạn, thời gian dư sẽ cộng vào Phase Quest nếu Phase Quest có giới hạn thời gian, ngược lại, nếu lố thời gian, sẽ trực tiếp rút vào giới hạn thời 
