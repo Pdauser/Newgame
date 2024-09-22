@@ -31,13 +31,15 @@ Mechanics:
 			- SoulBound: Không có giới hạn về cấp độ và chỉ số, tuy nhiên điều kiện lên cấp và chỉ số cực kì khắc nghiệt, lượng tăng tự nhiên thậm chí không bằng 1/4 các 
 						 Nhân vật bậc 1. Tuy nhiên, khi nhân vật này chết trong 1 nhiệm vụ, nhân vật này sẽ được hồi sinh, bị giảm 20% chỉ số trong 8 nhiệm vụ tiếp theo của người chơi, có thể cộng dồn
 						 lượng giảm đến tối đa 100%, ở lượng giảm tối đa, các chỉ số sẽ quay về lúc nhân vật vừa xuất hiện. Thời gian bị giảm sẽ đếm ngược từ lần chết gần nhất.
+						 Đặc biệt, các nhân vật SoulBound có thể nhận được 1 nội tại dạng chức năng như chế tạo, nấu nướng... 
 
 			- Unique: Có giới hạn về cấp độ gấp ba so với nhân vật bậc 5, để 1 nhân vật bậc 5 tiến lên, cần thực hiện 1 chuỗi nhiệm vụ đặc biệt khi nhân vật này tối đa tất cả
 					  các chỉ số, cấp độ và kĩ năng. Khi nâng lên Unique, nhân vật chết trong nhiệm vụ sẽ không chết mãi mãi, mà có thể được hồi sinh bằng vật phẩm đặc biệt.
 
 - Kỹ Năng: có 2 loại kĩ năng tồn tại, 1 nhân vật sẽ không giới hạn lượng kĩ năng mà mình có thể sở hữu.
 		   - Nội tại: các kĩ năng liên quan đến chỉ số, thường cần thõa mãn 1 điều kiện nhất định để kích hoạt. Khi thõa mãn điều kiện, nội tại sẽ tự động kích hoạt. Những nội tại không có 
-		   			  điều kiện hoặc có điều kiện kích hoạt liên quan đến trang bị, sẽ được kích hoạt từ đầu nhiệm vụ.
+		   			  điều kiện hoặc có điều kiện kích hoạt liên quan đến trang bị, sẽ được kích hoạt từ đầu nhiệm vụ. Dạng đặc biệt là các nội tại chức năng,
+					  nội tại chức năng chỉ có nhân vật SoulBound mới có thể sở hữu, và sẽ liên quan đến chế tạo, nấu nướng, thu thập,...
 		   - Chủ động: các kĩ năng cần kích hoạt, nhân vật sẽ được kích hoạt những kĩ năng dạng này khi nhận được Combat Tick tung ra kĩ năng này. Các kỹ năng thường yêu cầu 1 set trang bị
 		   			   để có thể được kích hoạt
 		   Khi 1 nhân vật có thể training để tăng chỉ số, cũng có cơ hội nhận được thêm kĩ năng ở cả 2 dạng.
@@ -55,7 +57,19 @@ Mechanics:
 			- Mũ: giảm tỷ lệ trúng hiệu ứng tử vong từ các tấn công tầm xa.
 			- 2 tay: trang bị vũ khí, khiên, và các vật cầm tay khác, các item cần dùng 2 tay sẽ tốn cả 2 slot tay.
 			- 3 Artifact: các artifact là các vật phẩm đặc biệt, không hoặc rất ít trợ giúp cho chiến đấu, chủ yếu các artifact sẽ hỗ trợ cho nhân vật
-						  .
+						  trong Explore Phase và các Phase phụ.
+			Các trang bị đều có thể được tìm thấy khi thực hiện nhiệm vụ, hoặc cũng có thể chế tạo, các nguyên liệu cũng được lấy từ các nhiệm vụ
+			trừ các Artifact ra, các loại trang bị khác đều có thể chế tạo được. Mỗi trang bị nhận được và chế tạo được đều có 1 chỉ số chính sẽ cố định
+			nhưng lượng thì random, đồng thời mỗi bậc sẽ cho trang bị có thêm 1 dòng chỉ số phụ.
+			Trang bị chia thành 5 bậc với 5 chất lượng, Từ bậc 1 đến 5, Chất lượng từ Poor=>Normal=>Good=>Epic=>Masterpiece.
+
+- Nguyên Liệu: để rút gọn hệ thống chế đồ, nguyên liệu chia thành gỗ, da, vải, kim loại. Từ bậc 1 đến 5 và sẽ dùng để chế trang bị cùng bậc.
+			   Nguyên Liệu được mang về thông qua các nhiệm vụ, phần này sẽ được nói rõ hơn ở phần khác.
+
+- Chế Tạo: trừ Artifact, các trang bị còn lại đều có thể chế tạo khi sử dụng nguyên liệu cùng bậc với trang bị cần chế tạo, mỗi trang bị chế tạo
+		   cũng có chất lượng chế tạo, chất lượng có thể được tăng khi tăng cấp lò rèn, hoặc sử dụng 1 nhân vật có nội tại chế tạo.
+
+- Nhiệm vụ: là cách gọi của các màn chơi, bao gồm các loại: Skipmiss
 
 Game Play:
 
