@@ -69,7 +69,18 @@ Mechanics:
 - Chế Tạo: trừ Artifact, các trang bị còn lại đều có thể chế tạo khi sử dụng nguyên liệu cùng bậc với trang bị cần chế tạo, mỗi trang bị chế tạo
 		   cũng có chất lượng chế tạo, chất lượng có thể được tăng khi tăng cấp lò rèn, hoặc sử dụng 1 nhân vật có nội tại chế tạo.
 
-- Nhiệm vụ: là cách gọi của các màn chơi, bao gồm các loại: Skipmiss
+- Nhiệm vụ: là cách gọi của các màn chơi, bao gồm các loại: Skipmiss, Tháp(cốt truyện nhưng tạm thời chưa có),Khai thác.
+			- Skipmiss: các nhiệm vụ tiêu diệt quái, ngay khi bắt đầu sẽ đi thẳng vào chiến đấu, không có các Phase khác.
+			- Tháp: các nhiệm vụ cố định, có đầy đủ các Phase, có thể chơi lại tầng đã hoàn thành với phần thưởng giảm đi, với phiên bản đầu
+					tháp sẽ có 30 tầng.
+			- Khai Thác: các nhiệm vụ chỉ có Phase phụ Hunt&Gather, có giới hạn thời gian.
+
+- Sảnh chính: Sảnh chính của người chơi là cửa dẫn tới tất cả các chức năng khác như Kho, chế tạo, xếp đội, huấn
+			  luyện, roll nhân vật, kết hợp nhân vật, bắt đầu nhiệm vụ. Đồng thời, 1 vài chức năng có thể nâng cấp
+			  để tiếp cận các content late game.
+
+- Kết hợp nhân vật: người chơi có thể kết hợp 1 nhân vật không dùng vào 1 nhân vật khác, giúp tăng chỉ số của nhân vật
+					mà không cần đợi huấn luyện, lượng chỉ số tăng lên bằng cách này sẽ không vượt quá 75% chỉ số tối đa.
 
 Game Play:
 
