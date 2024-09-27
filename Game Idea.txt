@@ -26,7 +26,8 @@ Mechanics:
 
 			- 1->5 (Bậc thường): chỉ số nhận được khi training và lên cấp cũng như cấp tối đa của nhân vật sẽ phụ thuộc vào bậc của nhân vật đó.
 								 Những nhân vật bậc thấp trong các bậc thường có thể được nâng bậc bằng các cách khác nhau. Khi chết trong 1 nhiệm vụ
-								 Nhân vật có Bậc Thường sẽ chết mãi mãi, nghĩa là người chơi sẽ mất nhân vật đó.
+								 Nhân vật có Bậc Thường có thanh thể lực, khi chết trong 1 nhiệm vụ, thanh thể lực sẽ giảm, kèm theo đó, giảm chỉ số khi bắt đầu
+								 trận đấu. Việc hồi phục thể lực sẽ được giải thích ở 1 mục khác
 
 			- SoulBound: Không có giới hạn về cấp độ và chỉ số, tuy nhiên điều kiện lên cấp và chỉ số cực kì khắc nghiệt, lượng tăng tự nhiên thậm chí không bằng 1/4 các 
 						 Nhân vật bậc 1. Tuy nhiên, khi nhân vật này chết trong 1 nhiệm vụ, nhân vật này sẽ được hồi sinh, bị giảm 20% chỉ số trong 8 nhiệm vụ tiếp theo của người chơi, có thể cộng dồn
