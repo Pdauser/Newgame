@@ -29,7 +29,7 @@ Mechanics:
 								 Nhân vật có Bậc Thường có thanh thể lực, khi chết trong 1 nhiệm vụ, thanh thể lực sẽ giảm, kèm theo đó, giảm chỉ số khi bắt đầu
 								 trận đấu. Việc hồi phục thể lực sẽ được giải thích ở 1 mục khác
 
-			- SoulBound: Không có giới hạn về cấp độ và chỉ số, tuy nhiên điều kiện lên cấp và chỉ số cực kì khắc nghiệt, lượng tăng tự nhiên thậm chí không bằng 1/4 các 
+			- SoulBound: Không có giới hạn về chỉ số(điểm trần chỉ số là 30000 cho mỗi chỉ số, tránh crash), chỉ có 1 cấp, tuy nhiên điều kiện tang chỉ số cực kì khắc nghiệt, lượng tăng tự nhiên thậm chí không bằng 1/4 các 
 						 Nhân vật bậc 1. Tuy nhiên, khi nhân vật này chết trong 1 nhiệm vụ, nhân vật này sẽ được hồi sinh, bị giảm 20% chỉ số trong 8 nhiệm vụ tiếp theo của người chơi, có thể cộng dồn
 						 lượng giảm đến tối đa 100%, ở lượng giảm tối đa, các chỉ số sẽ quay về lúc nhân vật vừa xuất hiện. Thời gian bị giảm sẽ đếm ngược từ lần chết gần nhất.
 						 Đặc biệt, các nhân vật SoulBound có thể nhận được 1 nội tại dạng chức năng như chế tạo, nấu nướng... 
