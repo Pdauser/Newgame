@@ -14,7 +14,25 @@ public class CharacterManager : MonoBehaviour
 
         foreach (Character character in CharactersList.list)
         {
-            Debug.Log($"{character.Name}");
+            //Debug.Log($"{character.Name}");
+            GenerateCharacterCard(character);
+        }
+    }
+    public void DisplayUnselected()
+    {
+        ClearAllCards();
+        foreach (Character character in CharactersList.unselected)
+        {
+            //Debug.Log($"{character.Name}");
+            GenerateCharacterCard(character);
+        }
+    }
+    public void DisplaySelected()
+    {
+        ClearAllCards();
+        foreach (Character character in CharactersList.selected)
+        {
+            //Debug.Log($"{character.Name}");
             GenerateCharacterCard(character);
         }
     }
@@ -31,6 +49,7 @@ public class CharacterManager : MonoBehaviour
         TMP_Text agileText = card.transform.Find("AgileText")?.GetComponent<TMP_Text>();
         TMP_Text resistText = card.transform.Find("ResistText")?.GetComponent<TMP_Text>();
         TMP_Text tierText = card.transform.Find("Tier")?.GetComponent<TMP_Text>();
+        TMP_Text idText = card.transform.Find("Id")?.GetComponent<TMP_Text>();
 
         if (nameText != null) nameText.text = character.Name;
         if (levelText != null) levelText.text = $"Lv: {character.current_Level}/{character.max_Level}";
@@ -39,6 +58,10 @@ public class CharacterManager : MonoBehaviour
         if (agileText != null) agileText.text = $"AGI: {character.base_Agile}";
         if (resistText != null) resistText.text = $"RES: {character.base_Resist}";
         if (tierText != null) tierText.text = $" Tier: {character._Tier}";
+        if (idText !=null)
+        {
+            idText.text = character.Id;
+        }
     }
 
     private void ClearAllCards()

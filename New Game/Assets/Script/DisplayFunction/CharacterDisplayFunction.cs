@@ -23,4 +23,14 @@ public class CharacterDisplayFunction : MonoBehaviour
     {
         canvasManager.PlayMenuView();
     }
+    public void ChooseMenu()
+    {
+        CharactersList.unselected = CharactersList.list;
+        CharactersList.selected.Clear();
+        canvasManager.ChooseMenuView();
+    }
+    public void BattleModeMenu()
+    {
+        canvasManager.BattleModeMenuView();
+    }
 }

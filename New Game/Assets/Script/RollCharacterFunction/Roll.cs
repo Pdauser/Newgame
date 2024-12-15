@@ -7,7 +7,7 @@ public class Roll
     private static readonly string[] tierOptions = { "SoulBound", "_1", "_2", "_3", "_4", "_5", "Unique" };
 
     // Trọng số cho mỗi Tier (phần tử thứ n tương ứng với tierOptions[n])
-    private static readonly int[] tierWeights = { 1, 40, 30, 15, 10, 3, 1 };
+    private static readonly int[] tierWeights = { 5, 50, 30, 20, 15, 10, 5 };
 
     public string _Tier;
     public static void GenerateRandomCharacter()

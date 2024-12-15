@@ -5,7 +5,10 @@ using System.IO;
 static class CharactersList
 {
     static public List<Character> list = new List<Character>();
+    static public List<Character> unselected = new List<Character>();
+    static public List <Character> selected = new List<Character>();
 }
+
 public class Save
 {
     private string path = Application.persistentDataPath + "/characters.json";

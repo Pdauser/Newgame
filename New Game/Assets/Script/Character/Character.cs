@@ -4,18 +4,21 @@
 public class Character
 {
     private static readonly string[] firstNames = {
-        "Aiden", "Eren", "Kai", "Luna", "Nova", "Zephyr", "Ashe", "Ivy", "Theo", "Raven", "Rarken","Adam","Luccy","Solatta"
+        "Aiden", "Eren", "Kai", "Luna", "Nova", "Zephyr", "Ashe", "Ivy", "Theo", "Raven", "Rarken","Adam","Luccy","Solatta","Mikasha","Yasou","Zenrany"
     };
 
     private static readonly string[] middleNames = {
-        "Shadow", "Blaze", "Storm", "Frost", "Dawn", "Wraith", "Flame", "Bane", "Light", "Void","Wraithful"
+        "Shadow", "Blaze", "Storm", "Frost", "Dawn", "Wraith", "Flame", "Bane", "Light", "Void","Wraithful","Flow"
     };
 
     private static readonly string[] lastNames = {
-        "Hunter", "Walker", "Seeker", "Blade", "Guardian", "Knight", "Sage", "Ranger", "Mage", "Sentinel"
+        "Hunter", "Walker", "Seeker", "Blade", "Guardian", "Knight", "Sage", "Ranger", "Mage", "Sentinel","Brawler"
+    };
+    private static readonly string[] iD = {
+        "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","s","r","t","w","z","u","v","y","x"
     };
 
-   
+
     //Health
     public int base_Health;
     public int real_Health;
@@ -59,8 +62,8 @@ public class Character
     public string TargetAi;
 
     //Name
-
     public string Name;
+    public string Id;
     public Character()
     {
         base_Health = 10;
@@ -74,6 +77,8 @@ public class Character
         base_Resist = 1;
         TargetAi = "Single";
         Name = GenerateRandomName();
+        Id = InitID();
+        
     }
 
     public Character(int health, string Tier, int strength, int agile, int resist, string targetAi)
@@ -142,6 +147,7 @@ public class Character
         }
         else TargetAi = "Single";
         Name = GenerateRandomName();
+        Id = InitID();
     }
     public static string GenerateRandomName()
     {
@@ -151,7 +157,34 @@ public class Character
 
         return $"{firstName} {middleName} {lastName}";
     }
-    
+    public static string GenerateRandomID()
+    {
+        string finalID;
+        string _char;
+        string _num;
+        _char = iD[Random.Range(0, iD.Length)] + iD[Random.Range(0, iD.Length)] + iD[Random.Range(0, iD.Length)] + iD[Random.Range(0, iD.Length)];
+        _num = Random.Range(10000, 99999).ToString();
+        finalID = _char + _num;
+        return finalID;
+    }
+    public static string InitID()
+    {
+        string finalID;
+        bool exist;
+        do
+        {
+            exist = false;
+            finalID = GenerateRandomID();
+            foreach(Character character in CharactersList.list){
+                if(character.Id == finalID)
+                {
+                    exist = true;
+                }
+            }
+        }
+        while (exist == true);
+        return finalID;
+    }
     public void RollResult()
     {
 

@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using TMPro;
 public class RollFunction : MonoBehaviour
 {
+    public TMP_Text MoneyPanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,14 @@ public class RollFunction : MonoBehaviour
 
     public void RollCharacter()
     {
-        Roll.GenerateRandomCharacter();
+        
+        if (Money.Coin >= 5)
+        {
+            Roll.GenerateRandomCharacter();
+            Money.AddCoins(-5);
+            MoneyPanel.text = $"{Money.Coin}";
+        }
+        else Debug.Log("Not Enough Money");
+        
     }
 }

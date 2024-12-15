@@ -1,16 +1,15 @@
 using UnityEngine;
-
-public class Money : MonoBehaviour
+[System.Serializable]
+public static class Money
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static int Coin = 50;
 
-    // Update is called once per frame
-    void Update()
-    {
+    public static void AddCoins(int amount)
+    {if (Coin + amount >= 0)
+        {
+            Coin += amount;
+        }
         
     }
 }
+
