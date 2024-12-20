@@ -12,6 +12,16 @@ public class CanvasControl : MonoBehaviour
     public CharacterManager selectedInventory;
 
     public GameObject battleModeMenu;
+    public BattleInit battleInit;
+
+    public GameObject BattleView;
+
+    public CharacterManager enermiesView;
+    public CharacterManager alliesView;
+
+    public GameObject rewardView;
+    public TMP_Text Exp_Text;
+    public TMP_Text Money_Text;
     // Hàm tắt tất cả các Canvas và chỉ hiển thị Scroll View.
     private void Start()
     {
@@ -19,6 +29,9 @@ public class CanvasControl : MonoBehaviour
         characterScrollView.SetActive(false);
         chooseMenu.SetActive(false);
         MoneyPanel.text = $"{Money.Coin}";
+        BattleView.SetActive(false);
+        battleModeMenu.SetActive(false);
+        rewardView.SetActive(false);
 
     }
     public void ShowCharacterScrollView()
@@ -26,7 +39,11 @@ public class CanvasControl : MonoBehaviour
         characterInventory.DisplayAllCharacters();
         playMenu.SetActive(false);
         chooseMenu.SetActive(false);
-        characterScrollView.SetActive(true); // Hiển thị Scroll View chứa danh sách nhân vật.
+        characterScrollView.SetActive(true);
+        BattleView.SetActive(false);
+        battleModeMenu.SetActive(false);
+        rewardView.SetActive(false);
+
     }
     public void PlayMenuView()
     {
@@ -34,6 +51,15 @@ public class CanvasControl : MonoBehaviour
         MoneyPanel.text = $"{Money.Coin}";
         characterScrollView.SetActive(false);
         chooseMenu.SetActive(false);
+        BattleView.SetActive(false);
+        battleModeMenu.SetActive(false);
+        rewardView.SetActive(false);
+        foreach (Character character in CharactersList.selected)
+        {
+            CharactersList.list.Add(character);
+        }
+        CharactersList.selected.Clear();
+        
     }
     public void ChooseMenuView()
     {
@@ -41,6 +67,10 @@ public class CanvasControl : MonoBehaviour
         characterScrollView.SetActive(false);
         chooseMenu.SetActive(true);
         unselectedInventory.DisplayUnselected();
+        selectedInventory.DisplaySelected();
+        BattleView.SetActive(false);
+        battleModeMenu.SetActive(false);
+        rewardView.SetActive(false);
 
     }
     public void BattleModeMenuView()
@@ -49,6 +79,71 @@ public class CanvasControl : MonoBehaviour
         characterScrollView.SetActive(false);
         chooseMenu.SetActive(false);
         battleModeMenu.SetActive(true);
+        BattleView.SetActive(false);
+        rewardView.SetActive(false);
     }
+    public void SurvivalMode()
+    {
+        playMenu.SetActive(false);
+        characterScrollView.SetActive(false);
+        chooseMenu.SetActive(false);
+        battleModeMenu.SetActive(false);
+        BattleView.SetActive(true);
+        battleInit.InitSurvival();
+        rewardView.SetActive(false);
+    }
+    public void FastlMode()
+    {
+        playMenu.SetActive(false);
+        characterScrollView.SetActive(false);
+        chooseMenu.SetActive(false);
+        battleModeMenu.SetActive(false);
+        BattleView.SetActive(true);
+        battleInit.InitFast();
+        rewardView.SetActive(false);
+    }
+    public void KillMode()
+    {
+        playMenu.SetActive(false);
+        characterScrollView.SetActive(false);
+        chooseMenu.SetActive(false);
+        battleModeMenu.SetActive(false);
+        BattleView.SetActive(true);
+        battleInit.InitKill();
+        rewardView.SetActive(false);
+    }
+    public void RewardView()
+    {
+        playMenu.SetActive(false);
+        characterScrollView.SetActive(false);
+        chooseMenu.SetActive(false);
+        BattleView.SetActive(false);
+        battleModeMenu.SetActive(false);
+        rewardView.SetActive(true);
+        BattleReward(BattleControler.killed, BattleControler.turn);
+    }
+
+    public void BattleReward(int kill, int turn)
+    {
+        int Exp = (int)(((kill * 50) + (turn * 20))* 1.15f / CharactersList.selected.Count); //CharactersList.selected.Count;
+        int money = (kill * 2) + (turn * 1);
+        Money.AddCoins(money);
+        Exp_Text.text = $"Exp: {Exp}";
+        Money_Text.text = $"Money: {money}";
+        foreach (Character character in CharactersList.selected)
+        {
+            character.current_Exp += Exp;
+            if (character.current_Exp >= character.max_Exp && character.current_Level < character.max_Level)
+            {
+                character.current_Exp = 0;
+                Character.LevelUp(character);
+            }
+            CharactersList.list.Add(character);
+            
+        }
+        CharactersList.selected.Clear();
+    }
+
+
 }
 

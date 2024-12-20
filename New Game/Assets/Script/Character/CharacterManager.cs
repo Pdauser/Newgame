@@ -41,7 +41,6 @@ public class CharacterManager : MonoBehaviour
     {
         // Tạo thẻ bài từ prefab
         GameObject card = Instantiate(cardPrefab, cardParent);
-
         TMP_Text nameText = card.transform.Find("Name")?.GetComponent<TMP_Text>();
         TMP_Text levelText = card.transform.Find("Level")?.GetComponent<TMP_Text>();
         TMP_Text healthText = card.transform.Find("Health")?.GetComponent<TMP_Text>();
@@ -50,6 +49,7 @@ public class CharacterManager : MonoBehaviour
         TMP_Text resistText = card.transform.Find("ResistText")?.GetComponent<TMP_Text>();
         TMP_Text tierText = card.transform.Find("Tier")?.GetComponent<TMP_Text>();
         TMP_Text idText = card.transform.Find("Id")?.GetComponent<TMP_Text>();
+        TMP_Text target = card.transform.Find("TargetAi")?.GetComponent<TMP_Text>();
 
         if (nameText != null) nameText.text = character.Name;
         if (levelText != null) levelText.text = $"Lv: {character.current_Level}/{character.max_Level}";
@@ -62,6 +62,7 @@ public class CharacterManager : MonoBehaviour
         {
             idText.text = character.Id;
         }
+        if(target != null) { target.text = character.TargetAi; }
     }
 
     private void ClearAllCards()
@@ -72,5 +73,65 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void DisplayBattleCard()
+    {
+        ClearAllCards();
+        foreach (Character character in CharactersList.selected)
+        {
+            //Debug.Log($"{character.Name}");
+            GenerateBattleCard(character);
+        }
+    }
+    private void GenerateBattleCard(Character character)
+    {
+        // Tạo thẻ bài từ prefab
+        GameObject card = Instantiate(cardPrefab, cardParent);
 
+        TMP_Text nameText = card.transform.Find("Name")?.GetComponent<TMP_Text>();
+        TMP_Text levelText = card.transform.Find("Level")?.GetComponent<TMP_Text>();
+        TMP_Text healthText = card.transform.Find("Health")?.GetComponent<TMP_Text>();
+        TMP_Text strengthText = card.transform.Find("StrengthText")?.GetComponent<TMP_Text>();
+        TMP_Text agileText = card.transform.Find("AgileText")?.GetComponent<TMP_Text>();
+        TMP_Text resistText = card.transform.Find("ResistText")?.GetComponent<TMP_Text>();
+        TMP_Text tierText = card.transform.Find("Tier")?.GetComponent<TMP_Text>();
+        TMP_Text idText = card.transform.Find("Id")?.GetComponent<TMP_Text>();
+
+        if (nameText != null) nameText.text = character.Name;
+        if (levelText != null) levelText.text = $"Lv: {character.current_Level} / {character.max_Level}";
+        if (healthText != null) healthText.text = $"HP: {character.current_Health} / {character.real_Health}";
+        if (strengthText != null) strengthText.text = $"STR: {character.real_Strength}";
+        if (agileText != null) agileText.text = $"AGI: {character.real_Agile}";
+        if (resistText != null) resistText.text = $"RES: {character.real_Resist}";
+        if (tierText != null) tierText.text = $" Tier: {character._Tier}";
+        if (idText != null)
+        {
+            idText.text = character.Id;
+        }
+    }
+    public void DisplatEnermiesCard()
+    {
+        ClearAllCards();
+        foreach (Enermy character in EnermiesList.enermies)
+        {
+            //Debug.Log($"{character.Name}");
+            GeneratEnermiesBattleCard(character);
+        }
+    }
+    private void GeneratEnermiesBattleCard(Enermy character)
+    {
+        // Tạo thẻ bài từ prefab
+        GameObject card = Instantiate(cardPrefab, cardParent);
+
+        TMP_Text nameText = card.transform.Find("Name")?.GetComponent<TMP_Text>();
+        TMP_Text healthText = card.transform.Find("Health")?.GetComponent<TMP_Text>();
+        TMP_Text strengthText = card.transform.Find("StrengthText")?.GetComponent<TMP_Text>();
+        TMP_Text agileText = card.transform.Find("AgileText")?.GetComponent<TMP_Text>();
+        TMP_Text resistText = card.transform.Find("ResistText")?.GetComponent<TMP_Text>();
+
+        if (nameText != null) nameText.text = character.Name;
+        if (healthText != null) healthText.text = $"HP: {character.current_Health}/{character.max_Health}";
+        if (strengthText != null) strengthText.text = $"STR: {character.base_Strength}";
+        if (agileText != null) agileText.text = $"AGI: {character.base_Agile}";
+        if (resistText != null) resistText.text = $"RES: {character.base_Resist}";
+    }
 }

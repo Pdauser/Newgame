@@ -14,7 +14,7 @@ public class Character
     private static readonly string[] lastNames = {
         "Hunter", "Walker", "Seeker", "Blade", "Guardian", "Knight", "Sage", "Ranger", "Mage", "Sentinel","Brawler"
     };
-    private static readonly string[] iD = {
+    public static readonly string[] iD = {
         "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","s","r","t","w","z","u","v","y","x"
     };
 
@@ -36,7 +36,6 @@ public class Character
         Unique
     }
     public TierList _Tier;
-    public bool can_Tier_Up;
 
     //Level
     public int current_Level;
@@ -68,8 +67,8 @@ public class Character
     {
         base_Health = 10;
         _Tier = TierList._1;
-        can_Tier_Up = false;
         current_Exp = 0;
+        max_Exp = current_Level * 1000;
         current_Level = 1;
         max_Level = 20;
         base_Strength = 1;
@@ -100,12 +99,11 @@ public class Character
             case "Unique": _Tier = TierList.Unique; break;
             default: _Tier = TierList._1; break;
         }
-        can_Tier_Up = false;
 
         current_Level = 1;
         switch (_Tier)
         {
-            case TierList.SoulBound:
+            case TierList.SoulBound: max_Level = 9999;
                 break;
             case TierList._1: max_Level = 30;
                 break;
@@ -124,7 +122,7 @@ public class Character
         }
 
         current_Exp = 0;
-        max_Exp = current_Level * 100;
+        max_Exp = current_Level * 1000;
 
         if (strength >= 1)
         {
@@ -195,5 +193,13 @@ public class Character
         Debug.Log($"Agile: {base_Agile}");
         Debug.Log($"Resist: {base_Resist}");
         Debug.Log($"Target AI: {TargetAi}");
+    }
+    public static void LevelUp(Character character)
+    {
+        character.current_Level += 1;
+        character.base_Health += Random.Range(10, 20);
+        character.base_Strength += Random.Range(5, 15);
+        character.base_Agile += Random.Range(2, 8);
+        character.base_Resist += Random.Range(4, 10);
     }
 }

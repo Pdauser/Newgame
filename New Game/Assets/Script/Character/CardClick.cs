@@ -6,11 +6,13 @@ public class CardClick : MonoBehaviour
 {
     public CanvasControl CanvasControl;
     public TMP_Text IdText;
+
+    [System.Obsolete]
     public void ClickBehav()
     {
         CanvasControl = GameObject.Find("Canvas Control").GetComponent<CanvasControl>();
         
-        TMP_Text idText = gameObject.transform.Find("Id")?.GetComponent<TMP_Text>();
+        TMP_Text idText = gameObject.transform.FindChild("Id")?.GetComponent<TMP_Text>();
         bool Found = false;
         foreach (Character character in CharactersList.unselected)
         {
@@ -47,6 +49,7 @@ public class CardClick : MonoBehaviour
         }
         CanvasControl.unselectedInventory.DisplayUnselected();
         CanvasControl.selectedInventory.DisplaySelected();
+
     }
     public void ClickDelete()
     {

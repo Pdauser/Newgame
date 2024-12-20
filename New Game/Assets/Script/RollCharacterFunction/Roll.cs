@@ -62,7 +62,7 @@ public class Roll
                 randomResist = Random.Range(3, 6); break;
         }
         
-        string randomTargetAi = Random.value > 0.5f ? "Single" : "Multi";
+        string randomTargetAi = Random.value < 0.8f ? "Single" : "Multi";
         Character newCharacter =new Character(randomHealth, randomTier, randomStrength, randomAgile, randomResist, randomTargetAi);
         CharactersList.list.Add(newCharacter);
     }

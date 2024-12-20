@@ -33,4 +33,34 @@ public class CharacterDisplayFunction : MonoBehaviour
     {
         canvasManager.BattleModeMenuView();
     }
+    public void InitSurvival()
+    {
+        canvasManager.SurvivalMode();
+    }
+    public void InitFast()
+    {
+        canvasManager.FastlMode();
+    }
+    public void InitKill()
+    {
+        canvasManager.KillMode();
+    }
+    public void Save()
+    {
+        SaveLoad save = new SaveLoad();
+        Money.SaveCoins();
+        save.saveCharacter();
+    }
+
+    public void Load()
+    {
+        SaveLoad load = new SaveLoad();
+        Money.LoadCoins();
+        load.loadCharacter();
+    }
+    public void Exist()
+    {
+        Save();
+        Application.Quit();
+    }
 }
