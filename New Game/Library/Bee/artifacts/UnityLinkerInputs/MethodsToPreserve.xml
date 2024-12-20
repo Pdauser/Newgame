@@ -1,0 +1,26 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="CardClick">
+			<method name="ClickBehav"/>
+			<method name="ClickDelete"/>
+		</type>
+		<type fullname="CharacterDisplayFunction">
+			<method name="BacktoPlayMenu"/>
+			<method name="BacktoPlayMenu"/>
+			<method name="BacktoPlayMenu"/>
+			<method name="BacktoPlayMenu"/>
+			<method name="BattleModeMenu"/>
+			<method name="CharacterInventory"/>
+			<method name="ChooseMenu"/>
+			<method name="Exist"/>
+			<method name="InitFast"/>
+			<method name="InitKill"/>
+			<method name="InitSurvival"/>
+			<method name="Load"/>
+			<method name="Save"/>
+		</type>
+		<type fullname="RollFunction">
+			<method name="RollCharacter"/>
+		</type>
+	</assembly>
+</linker>
