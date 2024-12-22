@@ -86,7 +86,7 @@ public class BattleInit : MonoBehaviour
             average_health += Random.Range(character.base_Strength * 1.25f, character.base_Strength * 1.75f);
             average_strength += Random.Range(character.base_Health * 0.06f, character.base_Health * 0.11f);
             average_agile += Random.Range(character.base_Agile * 0.15f, character.base_Agile * 0.25f);
-            average_resist += Random.Range(character.base_Strength * 0.05f, character.base_Strength * 0.9f);
+            average_resist += Random.Range(character.base_Strength * 0.05f, character.base_Strength * 0.09f);
 
         }
         TargetAi = Random.value > 0.5f ? "Single" : "Multi";

@@ -47,7 +47,7 @@ public class BattleControler : MonoBehaviour
     {
         if (isKill)
         {
-            if (turn_Interval >= 5)
+            if (turn_Interval >= 3)
             {
                 turn_Interval = 0;
                 turn += 1;
@@ -62,16 +62,16 @@ public class BattleControler : MonoBehaviour
                 }
                 
                 CheckBattleEnd();
-            }else if (turn_Interval < 5)
+            }else if (turn_Interval < 3)
             {
                 turn_Interval += Time.deltaTime * 1f;
-                turn_Interval = Mathf.Clamp(turn_Interval,0f,5f);
+                turn_Interval = Mathf.Clamp(turn_Interval,0f,3f);
             }
 
         }
         if (isSurvival)
         {
-            if (turn_Interval >= 5)
+            if (turn_Interval >= 3)
             {
                 turn_Interval = 0;
                 turn += 1;
@@ -87,16 +87,16 @@ public class BattleControler : MonoBehaviour
                 
                 CheckBattleEnd();
             }
-            else if (turn_Interval < 5)
+            else if (turn_Interval < 3)
             {
                 turn_Interval += Time.deltaTime * 1f;
-                turn_Interval = Mathf.Clamp(turn_Interval, 0f, 5f);
+                turn_Interval = Mathf.Clamp(turn_Interval, 0f, 3f);
             }
 
         }
         if (isFast)
         {
-            if (turn_Interval >= 5)
+            if (turn_Interval >= 3)
             {
                 turn_Interval = 0;
                 turn += 1;
@@ -108,10 +108,10 @@ public class BattleControler : MonoBehaviour
                 
                 CheckBattleEnd();
             }
-            else if (turn_Interval < 5)
+            else if (turn_Interval < 3)
             {
                 turn_Interval += Time.deltaTime * 1f;
-                turn_Interval = Mathf.Clamp(turn_Interval, 0f, 5f);
+                turn_Interval = Mathf.Clamp(turn_Interval, 0f, 3f);
             }
 
         }
